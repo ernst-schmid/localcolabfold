@@ -63,6 +63,7 @@ EOF
 chmod +x ./colabfold_batch
 
 cd ~
+echo "Download python helper scripts to analyze the outputs from colabfold"
 read -p "Enter the github access token: " github_token
 curl -L -H "Accept: application/vnd.github+json" -H "Authorization: Bearer ${github_token}" -H "X-GitHub-Api-Version: 2022-11-28"  https://api.github.com/repos/ernst-schmid/foldserver/zipball/ -o github_analysis_scripts.zip
 unzip github_analysis_scripts.zip
