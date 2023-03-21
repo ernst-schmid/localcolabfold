@@ -5,9 +5,8 @@
 
 # Install this code and set up the pipeline 
 
-`wget https://raw.githubusercontent.com/ernst-schmid/localcolabfold/main/install_pipeline_linux.sh
- bash install_pipeline_linux.sh
-`
+`wget https://raw.githubusercontent.com/ernst-schmid/localcolabfold/main/install_pipeline_linux.sh`
+`bash install_pipeline_linux.sh`
 
 ## Acknowledgments
 
