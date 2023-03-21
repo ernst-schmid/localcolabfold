@@ -4,7 +4,7 @@ type wget || { echo "wget command is not installed. Please install it at first u
 type curl || { echo "curl command is not installed. Please install it at first using apt or yum. " ; exit 1 ; }
 
 CURRENTPATH=`pwd`
-COLABFOLDDIR="${CURRENTPATH}/localcolabfold"
+COLABFOLDDIR="${CURRENTPATH}/colabfold_batch"
 
 mkdir -p ${COLABFOLDDIR}
 cd ${COLABFOLDDIR}
@@ -17,15 +17,13 @@ conda create -p $COLABFOLDDIR/colabfold-conda python=3.9 -y
 conda activate $COLABFOLDDIR/colabfold-conda
 conda update -n base conda -y
 conda install -c conda-forge python=3.9 cudnn==8.2.1.32 cudatoolkit==11.1.1 openmm==7.5.1 pdbfixer -y
-# Download the updater
-wget -qnc https://raw.githubusercontent.com/YoshitakaMo/localcolabfold/main/update_linux.sh --no-check-certificate
-chmod +x update_linux.sh
+
 # install alignment tools
 conda install -c conda-forge -c bioconda kalign2=2.04 hhsuite=3.3.0 mmseqs2=14.7e284 -y
 # install ColabFold and Jaxlib
 # colabfold-conda/bin/python3.9 -m pip install "colabfold[alphafold] @ git+https://github.com/sokrypton/ColabFold"
 colabfold-conda/bin/python3.9 -m pip install --upgrade pip
-colabfold-conda/bin/python3.9 -m pip install --no-warn-conflicts "colabfold[alphafold-minus-jax] @ git+https://github.com/sokrypton/ColabFold"
+colabfold-conda/bin/python3.9 -m pip install --no-warn-conflicts "colabfold[alphafold-minus-jax] @ git+https://github.com/ernst-schmid/ColabFold.git"
 colabfold-conda/bin/python3.9 -m pip install https://storage.googleapis.com/jax-releases/cuda11/jaxlib-0.3.25+cuda11.cudnn82-cp39-cp39-manylinux2014_x86_64.whl
 colabfold-conda/bin/python3.9 -m pip install jax==0.3.25 biopython==1.79
 
@@ -48,3 +46,11 @@ echo "Installation of colabfold_batch finished."
 echo "Add ${COLABFOLDDIR}/colabfold-conda/bin to your environment variable PATH to run 'colabfold_batch'."
 echo "i.e. For Bash, export PATH=\"${COLABFOLDDIR}/colabfold-conda/bin:\$PATH\""
 echo "For more details, please type 'colabfold_batch --help'."
+
+echo "Setting up dropbox account for backing up colabfold data."
+mkdir ~/bin
+cd ~/bin
+wget https://github.com/dropbox/dbxcli/releases/download/v3.0.0/dbxcli-linux-amd64
+mv dbxcli-linux-amd64 dbxcli
+chmod +x dbxcli
+~/bindbxcli account
