@@ -62,6 +62,10 @@ $COLABFOLDDIR/colabfold-conda/bin/colabfold_batch "${@:2}"
 EOF
 chmod +x ./colabfold_batch
 
+
+read -p "Enter the github access token: " github_token
+
+
 echo "Installing helper script to upload files to dropbox"
 wget -q https://raw.githubusercontent.com/ernst-schmid/localcolabfold/main/upload_to_dbx.sh
 chmod +x upload_to_dbx.sh
@@ -73,3 +77,7 @@ wget https://github.com/dropbox/dbxcli/releases/download/v3.0.0/dbxcli-linux-amd
 mv dbxcli-linux-amd64 dbxcli
 chmod +x dbxcli
 ~/bindbxcli account
+
+
+
+
