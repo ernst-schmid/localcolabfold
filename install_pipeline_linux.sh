@@ -47,6 +47,21 @@ echo "Add ${COLABFOLDDIR}/colabfold-conda/bin to your environment variable PATH 
 echo "i.e. For Bash, export PATH=\"${COLABFOLDDIR}/colabfold-conda/bin:\$PATH\""
 echo "For more details, please type 'colabfold_batch --help'."
 
+echo "Making standalone command 'colabfold'..."
+cd ${COLABFOLDDIR}
+mkdir -p bin && cd bin
+cat << EOF > colabfold_batch
+#!/bin/bash
+
+export TF_FORCE_UNIFIED_MEMORY="1"
+export CUDA_VISIBLE_DEVICES=$1
+export XLA_PYTHON_CLIENT_MEM_FRACTION="8.0"
+export COLABFOLDDIR=~/colabfold_batch
+export PATH="${COLABFOLDDIR}/colabfold-conda/bin:$PATH"
+$COLABFOLDDIR/colabfold-conda/bin/colabfold_batch "${@:2}"
+EOF
+chmod +x ./colabfold_batch
+
 echo "Setting up dropbox account for backing up colabfold data."
 mkdir ~/bin
 cd ~/bin
