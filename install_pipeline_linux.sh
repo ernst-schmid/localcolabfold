@@ -58,7 +58,7 @@ export CUDA_VISIBLE_DEVICES=\$1
 export XLA_PYTHON_CLIENT_MEM_FRACTION="8.0"
 export COLABFOLDPATH=${COLABFOLDDIR}
 export PATH="\$COLABFOLDPATH/colabfold-conda/bin:$PATH"
-\$COLABFOLDPATH/colabfold-conda/bin/colabfold_batch "\${@:2}" & echo \$! > gpu_\$1'_pid.txt'
+\$COLABFOLDPATH/colabfold-conda/bin/colabfold_batch "\${@:2}" & echo \$! > ${CURRENTPATH}/colabfold_gpu_\$1'_pid.txt'
 EOF
 chmod +x ./colabfold_batch
 
