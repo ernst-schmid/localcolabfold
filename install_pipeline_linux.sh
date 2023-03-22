@@ -61,7 +61,7 @@ export COLABFOLDPATH=${COLABFOLDDIR}
 EOF
 chmod +x ./colabfold_batch
 
-echo 'export PATH=$COLABFOLDDIR"/bin/colabfold_batch:$PATH"' >> ~/.bashrc 
+echo 'export PATH="$COLABFOLDDIR/bin/colabfold_batch:$PATH"' >> ~/.bashrc 
 export PATH="$COLABFOLDDIR/bin/colabfold_batch:$PATH"
 
 cd ~
