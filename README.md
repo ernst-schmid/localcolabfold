@@ -1,6 +1,8 @@
-# LocalColabFold
+# localcolabfold (slim pipeline)
 
 [ColabFold](https://colab.research.google.com/github/sokrypton/ColabFold/blob/main/AlphaFold2.ipynb) on your local PC (or macOS). See also [ColabFold repository](https://github.com/sokrypton/ColabFold).
+
+A fork of the original Colabfold pipeline developed by Sergey Ovchinnikov and Martin Steinegger which produces smaller input files and other cutomizations designed for large folding jobs.
 
 
 # Install this code and set up the pipeline 
