@@ -61,8 +61,13 @@ export COLABFOLDPATH=${COLABFOLDDIR}
 EOF
 chmod +x ./colabfold_batch
 
+$'\n' >> ~/.bashrc 
+echo export COLABFOLDDIR=${COLABFOLDDIR} >> ~/.bashrc 
+$'\n' >> ~/.bashrc 
 echo 'export PATH="$COLABFOLDDIR/bin/colabfold_batch:$PATH"' >> ~/.bashrc 
-export PATH="$COLABFOLDDIR/bin/colabfold_batch:$PATH"
+
+export COLABFOLDDIR=${COLABFOLDDIR}
+export PATH="${COLABFOLDDIR}/bin/colabfold_batch:$PATH"
 
 cd ~
 echo "Download python helper scripts to analyze the outputs from colabfold"
