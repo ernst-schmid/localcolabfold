@@ -57,6 +57,7 @@ export TF_FORCE_UNIFIED_MEMORY="1"
 export CUDA_VISIBLE_DEVICES=\$1
 export XLA_PYTHON_CLIENT_MEM_FRACTION="8.0"
 export COLABFOLDPATH=${COLABFOLDDIR}
+export PATH="\$COLABFOLDPATH/colabfold-conda/bin:$PATH"
 \$COLABFOLDPATH/colabfold-conda/bin/colabfold_batch "\${@:2}"
 EOF
 chmod +x ./colabfold_batch
