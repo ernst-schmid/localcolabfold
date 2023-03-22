@@ -54,14 +54,14 @@ cat << EOF > colabfold_batch
 #!/bin/bash
 
 export TF_FORCE_UNIFIED_MEMORY="1"
-export CUDA_VISIBLE_DEVICES=$1
+export CUDA_VISIBLE_DEVICES=\$1
 export XLA_PYTHON_CLIENT_MEM_FRACTION="8.0"
 export COLABFOLDPATH=${COLABFOLDDIR}
-${COLABFOLDPATH}/colabfold-conda/bin/colabfold_batch "\${@:2}"
+\$COLABFOLDPATH/colabfold-conda/bin/colabfold_batch "\${@:2}"
 EOF
 chmod +x ./colabfold_batch
 
-echo 'export PATH="${COLABFOLDDIR}/bin/colabfold_batch:$PATH"' >> ~/.bashrc 
+echo 'export PATH=${COLABFOLDDIR}"/bin/colabfold_batch:$PATH"' >> ~/.bashrc 
 export PATH="${COLABFOLDDIR}/bin/colabfold_batch:$PATH"
 
 cd ~
@@ -85,6 +85,4 @@ mv dbxcli-linux-amd64 dbxcli
 chmod +x dbxcli
 ~/bin/dbxcli account
 
-
-
-
+echo "all done"
