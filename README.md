@@ -11,6 +11,8 @@ A fork of the original Colabfold pipeline developed by Sergey Ovchinnikov and Ma
 
 `bash install_pipeline_linux.sh`
 
+Code files will be located at ~/colabfold_batch/colabfold-conda/lib/python3.9/site-packages/colabfold/
+
 ## Acknowledgments
 
 - The original colabfold was first created by Sergey Ovchinnikov ([@sokrypton](https://twitter.com/sokrypton)), Milot Mirdita ([@milot_mirdita](https://twitter.com/milot_mirdita)) and Martin Steinegger ([@thesteinegger](https://twitter.com/thesteinegger)).
