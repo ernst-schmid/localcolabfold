@@ -66,7 +66,7 @@ echo export COLABFOLD_FOLDER=${COLABFOLDDIR} >> ~/.bashrc
 echo 'export PATH="$COLABFOLD_FOLDER/bin:$PATH"' >> ~/.bashrc 
 
 export COLABFOLD_FOLDER=${COLABFOLDDIR}
-export PATH="$COLABFOLD_FOLDER/bin:$PATH"
+export PATH="${COLABFOLD_FOLDER}/bin:${PATH}"
 
 cd ~
 echo "Download python helper scripts to analyze the outputs from colabfold"
